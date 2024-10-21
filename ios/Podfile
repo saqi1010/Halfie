@@ -1,0 +1,102 @@
+# Resolve react_native_pods.rb with node to allow for hoisting
+# require Pod::Executable.execute_command('node', ['-p',
+#   'require.resolve(
+#     "react-native/scripts/react_native_pods.rb",
+#     {paths: [process.argv[1]]},
+#   )', __dir__]).strip
+
+def node_require(script)
+    # Resolve script with node to allow for hoisting
+    require Pod::Executable.execute_command('node', ['-p',
+      "require.resolve(
+        '#{script}',
+        {paths: [process.argv[1]]},
+      )", __dir__]).strip
+  end
+  
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
+
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+target 'Halfie' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  setup_permissions([
+    'Calendars',
+    'Camera',
+    'FaceID',
+    'LocationAlways',
+    'LocationWhenInUse',
+    'Microphone',
+    'PhotoLibrary',
+    'Notifications', 
+])
+
+
+  # Add Firebase and related dependencies with modular headers
+  pod 'GoogleMaps' # Add this for Google Maps
+  pod 'GooglePlaces' # Add this for Google Places
+  pod 'Firebase', :modular_headers => true
+  pod 'Firebase/Messaging', :modular_headers => true
+  # pod 'react-native-google-places', :path => '../node_modules/react-native-google-places'
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'FirebaseDatabase', :modular_headers => true
+  pod 'leveldb-library', :modular_headers => true
+  pod 'FirebaseAppCheckInterop', :modular_headers => true
+
+# Add React Native Permissions
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'RNKeychain', :path => '../node_modules/react-native-keychain'
+
+
+  # pod 'Permission-LocationAlways', :path => '../node_modules/react-native-permissions/ios'
+  # pod 'Permission-LocationWhenInUse', :path => '../node_modules/react-native-permissions/ios'
+  # pod 'react-native-radial-gradient', :path => '../node_modules/react-native-radial-gradient'
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+  # pod 'react-native-skeleton-placeholder', :path => '../node_modules/react-native-skeleton-placeholder'
+  # pod 'RNSvg', :path => '../node_modules/react-native-svg'
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+  # pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+  # pod 'react-native-gesture-handler', :path => '../node_modules/react-native-gesture-handler'
+  # pod 'react-native-screens', :path => '../node_modules/react-native-screens'
+  # pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+  
+  target 'HalfieTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  post_install do |installer|
+    # installer.pods_project.targets.each do |target|
+    #   target.build_configurations.each do |config|
+    #     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+    #   end
+    # end
+    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      # :ccache_enabled => true
+    )
+  end
+end

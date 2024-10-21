@@ -1,0 +1,175 @@
+import { StyleSheet } from "react-native";
+import metrics from "../../theme/metrics";
+import font from "../../theme/font";
+import colors from "../../theme/color";
+
+export const styles = StyleSheet.create({
+    mainContainer:{
+        flex:1,
+        backgroundColor:colors.white,
+ 
+    },
+    alignCenter:{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    appFontStyle:{
+        fontSize:font.size.font24,
+        fontFamily:font.type.montserratSemiBold,
+        color:colors.black,
+        includeFontPadding:false,
+        top:metrics.changeByMobileDPI(-15)
+    },
+    appIconStyle:{
+        top:metrics.changeByMobileDPI(15)
+    },
+    subContainer:{
+        flex:1,
+
+    },
+    titleFontStyle:{
+        fontSize:font.size.font16,
+        fontFamily:font.type.montserratBold,
+        color:colors.boy_gray,
+        marginHorizontal:metrics.changeByMobileDPI(20),
+        marginBottom:metrics.changeByMobileDPI(20)
+    },
+  
+ 
+      contentContainerStyle:{
+        paddingLeft:metrics.changeByMobileDPI(20),
+        paddingRight:metrics.changeByMobileDPI(10)
+      },
+
+      quickLinFontStyle:{
+        fontSize:font.size.font12,
+        fontFamily:font.type.montserratRegular,
+        color:colors.black,
+        marginTop:metrics.changeByMobileDPI(10)
+      },
+      profileImageContainer:{
+        height:metrics.changeByMobileDPI(62),
+        width:metrics.changeByMobileDPI(62),
+        borderRadius:metrics.changeByMobileDPI(100),
+        overflow:'hidden'
+      },
+      imageStyle:{
+        height:'100%',
+     width:'100%'
+    },
+    quickLinkMainContainer:{
+        alignItems:'center',
+        marginRight:metrics.changeByMobileDPI(10)
+    },
+    margnBottomContainer:{
+      marginBottom:metrics.changeByMobileDPI(20)
+    },
+    
+    chatListingTitleFontStyle:{
+      fontSize:font.size.font16,
+      fontFamily:font.type.montserratMedium,
+      color:colors.black,
+    },
+    chatLisitingMessageFontStyle:{
+      fontSize:font.size.font12,
+      fontFamily:font.type.montserratRegular,
+      color:colors.graySolid,
+    },
+    seenFontStyle:{
+      fontSize:font.size.font12,
+      fontFamily:font.type.montserratRegular,
+      color:'#3C3C4360',
+      marginLeft:metrics.changeByMobileDPI(3),
+      marginRight:metrics.changeByMobileDPI(5)
+    },
+    timeFontStyle:{
+      fontSize:font.size.font12,
+      fontFamily:font.type.montserratRegular,
+      color:'#3C3C4360',
+    },
+    flexContainerSubContainer:{
+      flexDirection:'row',
+      alignItems:'center',
+    },
+    flexContainer:{
+      borderBottomWidth:0.5,
+      borderBottomColor:colors.gray_75,
+      marginBottom:metrics.changeByMobileDPI(20),
+      paddingHorizontal:metrics.changeByMobileDPI(20),
+      paddingBottom:metrics.changeByMobileDPI(15),
+      
+    },
+    marginLeftContainer:{
+      marginLeft:metrics.changeByMobileDPI(10),
+      flex:1
+    },
+    messageContainer:{
+      marginBottom:metrics.changeByMobileDPI(7),
+      flex:1,
+      width:metrics.screenWidth - metrics.changeByMobileDPI(180)
+    },
+    searchContainer:{
+      flexDirection:'row',
+      alignItems:'center',
+      marginHorizontal:metrics.changeByMobileDPI(20),
+      marginVertical:metrics.changeByMobileDPI(30)
+    },
+    searchSubContianer:{
+      height:metrics.changeByMobileDPI(48.94),
+      borderRadius:metrics.changeByMobileDPI(8),
+      backgroundColor:colors.lightGrayBgColor,
+      flexDirection:'row',
+      alignItems:'center',
+      flex:1,
+      marginHorizontal:metrics.changeByMobileDPI(10)
+    },
+    inputStyle:{
+      fontSize:font.size.font14,
+      fontFamily:font.type.montserratRegular,
+      color:colors.black,
+    },
+    inputContainer:{
+      flex:1
+    },
+    marginContainer:{
+      marginHorizontal:metrics.changeByMobileDPI(10)
+    },
+    doubleTickcontainer:{
+      flexDirection:'row',
+      alignItems:'center'
+    },
+    gridentButtonStyle:{
+      height:metrics.changeByMobileDPI(20),
+   width:metrics.changeByMobileDPI(20),
+   borderRadius:metrics.changeByMobileDPI(100),
+   alignItems:'center',
+   justifyContent:'center',
+  //  overflow:'hidden'
+    },
+    countFontStyle:{
+      fontSize:font.size.font12,
+      fontFamily:font.type.montserratRegular,
+      color:colors.white,
+      paddingHorizontal:metrics.changeByMobileDPI(5)
+    },
+    countSubContainer:{
+      flex:1,
+      borderRadius:metrics.changeByMobileDPI(100),
+      height:metrics.changeByMobileDPI(20),
+      width:metrics.changeByMobileDPI(20),
+      alignItems:'center',
+      justifyContent:'center',
+    },
+    positionContainer:{
+      position:'absolute',
+      top:metrics.changeByMobileDPI(0),
+      right:metrics.changeByMobileDPI(10)
+    },
+    recentEmtpyFontStyle:{
+      fontSize:font.size.font14,
+      fontFamily:font.type.quicksandBold,
+      color:colors.lightGray,
+      textAlign:'center'
+    }
+})

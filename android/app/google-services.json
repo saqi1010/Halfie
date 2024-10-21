@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "709079413589",
+    "firebase_url": "https://halfietest2-default-rtdb.firebaseio.com",
+    "project_id": "halfietest2",
+    "storage_bucket": "halfietest2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709079413589:android:388ef6918fd07a203035dc",
+        "android_client_info": {
+          "package_name": "com.halfietestone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709079413589-h9rcv8el42bo9at31054lcg6hae4oljj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.halfietestone",
+            "certificate_hash": "c1874548d0b0a044bc5ea97971b95b369b081d20"
+          }
+        },
+        {
+          "client_id": "709079413589-mfr6bsqfk9sdqv6c409v12e4lnr4p0o2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.halfietestone",
+            "certificate_hash": "f7d09d95394a8542041ad68c451a7dc01ad0bcde"
+          }
+        },
+        {
+          "client_id": "709079413589-e16ncopf68helul9ubvmlo0a3lkn9ilm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5ZrV48JmN8zVW4R7zK1WcjAP6I-Ya1L8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709079413589-e16ncopf68helul9ubvmlo0a3lkn9ilm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
